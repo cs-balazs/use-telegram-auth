@@ -1,0 +1,52 @@
+{
+  "name": "@use-telegram-auth/client",
+  "version": "1.0.0",
+  "description": "Core client-side functionality of authenticating users with Telegram without the widget",
+  "author": "baloo",
+  "license": "ISC",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup ./lib/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "authentication",
+    "auth",
+    "oauth",
+    "telegram"
+  ],
+  "dependencies": {
+    "react": "^18.2.0",
+    "@use-telegram-auth/client": "workspace:../client"
+  },
+  "devDependencies": {
+    "tsup": "^7.1.0",
+    "@types/react": "^18.2.17"
+  },
+  "tsup": {
+    "format": [
+      "esm",
+      "cjs"
+    ],
+    "dts": {
+      "resolve": true,
+      "entry": [
+        "./lib/index.ts"
+      ],
+      "compilerOptions": {
+        "moduleResolution": "node"
+      }
+    },
+    "clean": true,
+    "target": "esnext"
+  }
+}
