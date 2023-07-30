@@ -109,7 +109,7 @@ const telegramAuth = async (botId: string, options: Options = {}) => {
   );
 
   let isClosedInterval: NodeJS.Timer;
-  const isClosedPoll = new Promise<void>((resolve, reject) => {
+  const isClosedPoll = new Promise<TGAuthResult>((resolve, reject) => {
     isClosedInterval = setInterval(() => {
       if (win?.closed) {
         reject(new Error("The authentication window has been closed"));
