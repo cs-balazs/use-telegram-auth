@@ -1,4 +1,3 @@
 packages:
-  - "packages/client"
-  - "packages/server"
-  - "packages/hook"
+  - "packages/*"
+  - "examples/*"
