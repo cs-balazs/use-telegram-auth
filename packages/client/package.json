@@ -1,7 +1,7 @@
 {
   "name": "@use-telegram-auth/client",
-  "version": "1.0.4",
-  "description": "Core client-side functionality of authenticating users with Telegram without the widget",
+  "version": "1.0.5",
+  "description": "Core client-side functionality of authenticating users with Telegram without the login widget",
   "author": "baloo",
   "license": "ISC",
   "main": "./dist/index.js",

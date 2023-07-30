@@ -1,6 +1,6 @@
 {
   "name": "use-telegram-auth",
-  "description": "TypeScript libraries for authenticating users with Telegram without using the widget",
+  "description": "TypeScript libraries for authenticating users with Telegram without using the login widget",
   "keywords": [
     "auth",
     "authentication",
