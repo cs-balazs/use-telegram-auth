@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@use-telegram-auth/hook": "1.0.0",
+    "@use-telegram-auth/hook": "1.0.1",
     "@use-telegram-auth/server": "1.0.0",
     "@types/node": "20.4.5",
     "@types/react": "18.2.17",

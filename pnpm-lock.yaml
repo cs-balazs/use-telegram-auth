@@ -27,7 +27,7 @@ importers:
         specifier: 18.2.7
         version: 18.2.7
       '@use-telegram-auth/hook':
-        specifier: 1.0.0
+        specifier: 1.0.1
         version: link:../../packages/hook
       '@use-telegram-auth/server':
         specifier: 1.0.0
