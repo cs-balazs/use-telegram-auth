@@ -23,7 +23,7 @@ const verifyFromHashedBotToken = (
   return isValid;
 };
 
-const verofyFromRawBotToken = (
+const verifyFromRawBotToken = (
   tgAuthResult: TGAuthResult,
   rawBotToken: string
 ): boolean => {
@@ -31,5 +31,5 @@ const verofyFromRawBotToken = (
   return verifyFromHashedBotToken(tgAuthResult, hashedBotToken);
 };
 
-export { verofyFromRawBotToken };
+export { verifyFromRawBotToken };
 export default verifyFromHashedBotToken;
