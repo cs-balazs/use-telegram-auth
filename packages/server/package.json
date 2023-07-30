@@ -1,6 +1,6 @@
 {
   "name": "@use-telegram-auth/server",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Core server-side functionality of authenticating users with Telegram without the widget. This is only a utility for validating the auth result",
   "author": "baloo",
   "license": "ISC",

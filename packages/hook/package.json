@@ -1,6 +1,6 @@
 {
   "name": "@use-telegram-auth/hook",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Core client-side functionality of authenticating users with Telegram without the widget",
   "author": "baloo",
   "license": "ISC",
