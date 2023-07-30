@@ -30,6 +30,7 @@ export type Options<
   windowTarget: Target;
   windowFeatures: WindowFeatures;
   authTimeoutMs: number;
+  windowClosedPollMs: number;
 }>;
 
 const timeoutPromise = <ResolveData>(
@@ -51,6 +52,7 @@ const telegramAuth = async (botId: string, options: Options = {}) => {
     windowFeatures = {},
     windowTarget = "_blank",
     authTimeoutMs = 120_000,
+    windowClosedPollMs = 300,
   } = options;
 
   const getTgListener =
@@ -100,17 +102,29 @@ const telegramAuth = async (botId: string, options: Options = {}) => {
     })
     .join(",");
 
-  window.open(
+  const win = window.open(
     `https://oauth.telegram.org/auth?${searchParams}`,
     windowTarget,
     features
   );
 
-  const result = await (authTimeoutMs === 0
-    ? hasReceivedResponse
-    : timeoutPromise(hasReceivedResponse, authTimeoutMs)
-  ).finally(() => {
+  let isClosedInterval: NodeJS.Timer;
+  const isClosedPoll = new Promise<void>((resolve, reject) => {
+    isClosedInterval = setInterval(() => {
+      if (win?.closed) {
+        reject(new Error("The authentication window has been closed"));
+      }
+    }, windowClosedPollMs);
+  });
+
+  const result = await Promise.race([
+    authTimeoutMs === 0
+      ? hasReceivedResponse
+      : timeoutPromise(hasReceivedResponse, authTimeoutMs),
+    isClosedPoll,
+  ]).finally(() => {
     window.removeEventListener("message", tgListener);
+    clearInterval(isClosedInterval);
   });
 
   return result;
