@@ -1,6 +1,6 @@
 {
   "name": "@use-telegram-auth/server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Core server-side functionality of authenticating users with Telegram without the widget. This is only a utility for validating the auth result",
   "author": "baloo",
   "license": "ISC",
@@ -13,6 +13,10 @@
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cs-balazs/use-telegram-auth.git"
   },
   "scripts": {
     "build": "tsup ./lib/index.ts",
